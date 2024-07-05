@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOverOvelays.gameObject.SetActive(false);
-        //inGameUI.gameObject.SetActive(false);
+        inGameUI.gameObject.SetActive(false);
         Time.timeScale = 0;
     }
 
@@ -37,8 +38,8 @@ public class GameManager : MonoBehaviour
 
             titleGame.gameObject.SetActive(false);
             startGame.gameObject.SetActive(false);
-        //inGameUI.gameObject.SetActive(true);
-            Time.timeScale = 1;
+            inGameUI.gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
 
     public void GameOver()
@@ -66,8 +67,8 @@ public class GameManager : MonoBehaviour
         }
     } 
 
-    public void LoadGame()
+    public void RestartGame()
     {
-
+            SceneManager.LoadScene(0);
     }
 }
