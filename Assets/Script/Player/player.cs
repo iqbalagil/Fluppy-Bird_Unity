@@ -19,11 +19,15 @@ public class player : MonoBehaviour, IDataPersistence
     public Text score;
     private bool hasTriggered;
 
+    void Awake()
+    {
+        sound = GameObject.FindGameObjectWithTag("Audio").GetComponent<Sound>();
+    }
+
     void Start()
     {
         coinScore = 0;
         rigidbodys = GetComponent<Rigidbody2D>();
-        sound = GameObject.FindGameObjectWithTag("Audio").GetComponent<Sound>();
 
     }
 
@@ -42,7 +46,7 @@ public class player : MonoBehaviour, IDataPersistence
         if (Input.GetKey(KeyCode.Mouse0)){
 
             rigidbodys.velocity = Vector2.up * velocity;
-            sound.PlaySfx(sound.jump);
+            //sound.PlaySfx(sound.jump);
             
         }
 
