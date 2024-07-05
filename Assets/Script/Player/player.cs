@@ -12,7 +12,7 @@ public class player : MonoBehaviour, IDataPersistence
     public float velocity = 1.5f;
     private Rigidbody2D rigidbodys;
 
-    public List<GameObject> coin = new List<GameObject>();
+    public static List<GameObject> coin = new List<GameObject>();
      int highScore;
      int coinScore;
     public Text scoreHighest;
@@ -63,7 +63,7 @@ public class player : MonoBehaviour, IDataPersistence
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("coin10"))
+        if (other.tag == "coin10")
         {
             //Debug.Log("coin is triggered");
             coinScore++;
@@ -71,5 +71,6 @@ public class player : MonoBehaviour, IDataPersistence
             Destroy(other.gameObject, 0);
             sound.PlaySfx(sound.coinTouch);
         }
+
     }
 }
