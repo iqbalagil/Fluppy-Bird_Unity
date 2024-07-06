@@ -21,12 +21,6 @@ public class player : MonoBehaviour, IDataPersistence
     public Text scoreHighest;
     public Text score;
 
-    //public float turnSpeed = 300f;
-    //public float smoothRotation = 100f;
-    //public Transform target;
-    //private Transform myTransform;
-    //private bool isReset;
-
 
     Quaternion upRotation;
     Quaternion downRotation;
@@ -44,10 +38,6 @@ public class player : MonoBehaviour, IDataPersistence
         rigidbodys = GetComponent<Rigidbody2D>();
         rotationOrigin = bodyOrigin.rotation;
 
-        float upAngle = -100.0f;
-        float downAngle = 100.0f;
-        upRotation = Quaternion.Euler(new Vector3(0, 0, upAngle));
-        downRotation = Quaternion.Euler(new Vector3(0, 0, downAngle));
 
     }
 
@@ -63,12 +53,12 @@ public class player : MonoBehaviour, IDataPersistence
 
     void Update()
     {
-
-
+        float angle = Mathf.Lerp(0, -90, -rigidbodys.velocity.y / 7f);
+        transform.rotation = Quaternion.Euler(0, 0, angle);
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            rigidbodys.velocity = Vector2.up;
+            rigidbodys.velocity = Vector2.up * velocity;
         }
 
         if (rigidbodys.velocity.y > 0f)
@@ -90,22 +80,6 @@ public class player : MonoBehaviour, IDataPersistence
 
         }
 
-        //IEnumerator Reset()
-        //{
-        //    if (isReset) yield break;
-        //    isReset = true;
-        //    float timer = 0f;
-        //    Quaternion startRot = transform.rotation;
-        //    while (timer <= 1f)
-        //    {
-        //        transform.rotation = Quaternion.Lerp(startRot, transform.rotation.z(-10f), 2);
-        //        yield return new WaitForEndOfFrame();
-        //    }
-        //    Debug.Log(timer);
-        //    transform.rotation = target.rotation;
-        //    isReset = false;
-        //    yield break;
-        //}
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
