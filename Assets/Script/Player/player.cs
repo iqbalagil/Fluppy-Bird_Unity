@@ -59,6 +59,8 @@ public class player : MonoBehaviour, IDataPersistence
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             rigidbodys.velocity = Vector2.up * velocity;
+            float angleUp = Mathf.Lerp(0, 90, rigidbodys.velocity.y / 7f) ;
+            transform.rotation = Quaternion.Euler(0, 0, angleUp);
         }
 
         if (rigidbodys.velocity.y > 0f)
