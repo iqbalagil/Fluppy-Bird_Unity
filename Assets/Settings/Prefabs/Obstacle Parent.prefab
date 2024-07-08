@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 4578595489325276526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 1.074, z: 0}
+  m_LocalPosition: {x: 0.001953125, y: -1.263375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9157207645931542159}
+  m_Father: {fileID: 1666326560662608031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3969621234022370779
 SpriteRenderer:
@@ -132,8 +132,8 @@ GameObject:
   - component: {fileID: 7132108119326499120}
   - component: {fileID: 5866818352354599971}
   m_Layer: 0
-  m_Name: Obstacle
-  m_TagString: Untagged
+  m_Name: ObstacleBottom
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 5117730860069226810}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.162, z: 0}
+  m_LocalPosition: {x: 0, y: -0.263, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -260,7 +260,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9157207645931542159}
   - component: {fileID: 3774453154206204320}
-  - component: {fileID: 964472440694573150}
+  - component: {fileID: 1245989550692818136}
+  - component: {fileID: 87148528787215943}
   m_Layer: 0
   m_Name: Obstacle Parent
   m_TagString: Untagged
@@ -277,13 +278,12 @@ Transform:
   m_GameObject: {fileID: 6324387929737167379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4584.6255, y: -11536.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1666326560662608031}
   - {fileID: 6724041442643083236}
-  - {fileID: 7052493557507174034}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3774453154206204320
@@ -299,14 +299,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!61 &964472440694573150
+--- !u!114 &1245989550692818136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324387929737167379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ce04166662c48e1ab7c8820c57e23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 0
+  speedChange: 1
+  obstaclesUp: {fileID: 5117730860069226810}
+  obstacleDown: {fileID: 8588633047134214505}
+  height: 0.5
+--- !u!61 &87148528787215943
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6324387929737167379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -328,10 +345,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2397461, y: 0.8574219}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -342,7 +359,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4794922, y: 3.5058594}
   m_EdgeRadius: 0
 --- !u!1 &8588633047134214505
 GameObject:
@@ -356,8 +373,8 @@ GameObject:
   - component: {fileID: 6410217838492465039}
   - component: {fileID: 2601228696507157643}
   m_Layer: 0
-  m_Name: Obstacle
-  m_TagString: Untagged
+  m_Name: ObstacleUpper
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,10 +388,11 @@ Transform:
   m_GameObject: {fileID: 8588633047134214505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.234, z: 0}
+  m_LocalPosition: {x: 0, y: 2.279, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7052493557507174034}
   m_Father: {fileID: 9157207645931542159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6410217838492465039

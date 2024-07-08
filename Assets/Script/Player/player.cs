@@ -12,9 +12,6 @@ public class player : MonoBehaviour, IDataPersistence
     public float velocity = 1.5f;
     private Rigidbody2D rigidbodys;
 
-    Transform bodyOrigin;
-    Quaternion rotationOrigin;
-
     public static List<GameObject> coin = new List<GameObject>();
      int highScore;
      int coinScore;
@@ -36,7 +33,6 @@ public class player : MonoBehaviour, IDataPersistence
         
         coinScore = 0;
         rigidbodys = GetComponent<Rigidbody2D>();
-        rotationOrigin = bodyOrigin.rotation;
 
 
     }
@@ -88,7 +84,7 @@ public class player : MonoBehaviour, IDataPersistence
     {
         isDead = true;
         gameManager.GameOver();
-
+        return;
     }
 
 

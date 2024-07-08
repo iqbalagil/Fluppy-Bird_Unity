@@ -6,6 +6,7 @@ TagManager:
   tags:
   - coin10
   - Audio
+  - Pipe
   layers:
   - Default
   - TransparentFX
